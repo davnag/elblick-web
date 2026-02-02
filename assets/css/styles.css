@@ -412,7 +412,8 @@ img {
   transition: transform 0.2s ease;
 }
 
-.hero-icon:hover {
+.hero-icon:hover,
+.hero-icon.flash-active {
   animation: float 4s ease-in-out infinite, lightning-flash 0.6s ease-out;
   transform: scale(1.05);
 }
@@ -452,7 +453,9 @@ img {
 }
 
 .hero-icon:hover::before,
-.hero-icon:hover::after {
+.hero-icon:hover::after,
+.hero-icon.flash-active::before,
+.hero-icon.flash-active::after {
   opacity: 1;
   animation: spark-flash 0.4s ease-out;
 }

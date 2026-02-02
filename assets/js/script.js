@@ -1,3 +1,19 @@
+// Hero Icon Flash Effect (for mobile touch)
+document.addEventListener('DOMContentLoaded', () => {
+    const heroIcon = document.querySelector('.hero-icon');
+    if (heroIcon) {
+        heroIcon.addEventListener('click', () => {
+            heroIcon.classList.remove('flash-active');
+            // Force reflow to restart animation
+            void heroIcon.offsetWidth;
+            heroIcon.classList.add('flash-active');
+        });
+        heroIcon.addEventListener('animationend', () => {
+            heroIcon.classList.remove('flash-active');
+        });
+    }
+});
+
 // Carousel Navigation
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.screenshots-grid');
