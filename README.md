@@ -28,6 +28,8 @@ open index.html
 
 # Or use a local server
 python3 -m http.server 8000
+# or
+npx -y serve .
 ```
 
 ## GitHub Pages Setup
