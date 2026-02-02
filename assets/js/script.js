@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setActiveItem(index) {
         currentIndex = index;
-        
+
         mockups.forEach((mockup, i) => {
             mockup.classList.toggle('active', i === index);
         });
@@ -68,8 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const gridRect = grid.getBoundingClientRect();
         const mockupRect = mockup.getBoundingClientRect();
         const scrollOffset = mockupRect.left - gridRect.left - (gridRect.width / 2) + (mockupRect.width / 2);
-        
-        grid.scrollBy({ left: scrollOffset, behavior: smooth ? 'smooth' : 'instant' });
+
+        if (smooth) {
+            grid.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+        } else {
+            grid.scrollLeft += scrollOffset;
+        }
     }
 
     // Click on dots to navigate
@@ -94,30 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initial state - middle item active
-    setActiveItem(1);
-    
-    // On mobile, scroll to center the active item on load
+    // Initial state
     if (window.innerWidth <= 768) {
-        const centerOnLoad = () => {
-            scrollToItem(1, false);
-            // Sync active state after scroll position is set
-            requestAnimationFrame(() => {
-                updateActiveFromScroll();
-            });
+        // On mobile, sync active state with actual scroll position after layout
+        const initMobile = () => {
+            // First item is at scroll 0, so sync to that
+            updateActiveFromScroll();
         };
         if (document.readyState === 'complete') {
-            setTimeout(centerOnLoad, 0);
+            setTimeout(initMobile, 0);
         } else {
-            window.addEventListener('load', () => setTimeout(centerOnLoad, 0));
+            window.addEventListener('load', () => setTimeout(initMobile, 0));
         }
+    } else {
+        // Desktop: middle item active
+        setActiveItem(1);
     }
 
     // Scroll listener for mobile
     let ticking = false;
     grid.addEventListener('scroll', () => {
         if (window.innerWidth > 768) return;
-        
+
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 updateActiveFromScroll();
