@@ -540,11 +540,21 @@ img {
   transform: scale(0.85);
   opacity: 0.6;
   transition: transform 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.phone-mockup:hover {
+  opacity: 0.9;
+  transform: scale(0.92);
 }
 
 .phone-mockup.active {
   transform: scale(1.1);
   opacity: 1;
+}
+
+.phone-mockup.active:hover {
+  transform: scale(1.12);
 }
 
 .carousel-dots {
