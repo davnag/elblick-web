@@ -99,11 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // On mobile, scroll to center the active item on load
     if (window.innerWidth <= 768) {
-        const centerOnLoad = () => scrollToItem(1, false);
+        const centerOnLoad = () => {
+            scrollToItem(1, false);
+            // Sync active state after scroll position is set
+            requestAnimationFrame(() => {
+                updateActiveFromScroll();
+            });
+        };
         if (document.readyState === 'complete') {
-            centerOnLoad();
+            setTimeout(centerOnLoad, 0);
         } else {
-            window.addEventListener('load', centerOnLoad);
+            window.addEventListener('load', () => setTimeout(centerOnLoad, 0));
         }
     }
 
