@@ -91,7 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // On mobile, scroll to center the active item on load
     if (window.innerWidth <= 768) {
-        setTimeout(() => scrollToItem(1, false), 50);
+        const centerOnLoad = () => scrollToItem(1, false);
+        if (document.readyState === 'complete') {
+            centerOnLoad();
+        } else {
+            window.addEventListener('load', centerOnLoad);
+        }
     }
 
     // Scroll listener for mobile
