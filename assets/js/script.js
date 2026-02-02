@@ -2,14 +2,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const heroIcon = document.querySelector('.hero-icon');
     if (heroIcon) {
+        let flashTimeout;
         heroIcon.addEventListener('click', () => {
+            clearTimeout(flashTimeout);
             heroIcon.classList.remove('flash-active');
             // Force reflow to restart animation
             void heroIcon.offsetWidth;
             heroIcon.classList.add('flash-active');
+            // Remove class after animation duration (0.6s) as fallback
+            flashTimeout = setTimeout(() => {
+                heroIcon.classList.remove('flash-active');
+            }, 600);
         });
-        heroIcon.addEventListener('animationend', () => {
-            heroIcon.classList.remove('flash-active');
+        heroIcon.addEventListener('animationend', (e) => {
+            if (e.animationName === 'lightning-flash') {
+                heroIcon.classList.remove('flash-active');
+            }
         });
     }
 });
