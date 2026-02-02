@@ -10,10 +10,11 @@ website/
 ├── terms.html          # Terms of Use (Användarvillkor)
 ├── privacy.html        # Privacy Policy (Integritetspolicy)
 ├── assets/
-│   ├── css/            # Custom styles (if needed)
+│   ├── css/            # Custom styles (Variables, Animations, Glassmorphism)
+│   ├── js/             # Vanilla JavaScript logic
 │   └── images/
 │       ├── icon.png    # App icon
-│       └── screenshots/# App screenshots (add here)
+│       └── screenshots/# App screenshots
 └── README.md           # This file
 ```
 
@@ -23,10 +24,10 @@ Open `index.html` in a browser to preview the site:
 
 ```bash
 # macOS
-open website/index.html
+open index.html
 
 # Or use a local server
-cd website && python3 -m http.server 8000
+python3 -m http.server 8000
 ```
 
 ## GitHub Pages Setup
@@ -34,30 +35,30 @@ cd website && python3 -m http.server 8000
 1. Go to repository **Settings** → **Pages**
 2. Under "Source", select:
    - **Branch:** `main` (or your default branch)
-   - **Folder:** `/website`
+   - **Folder:** `/` (root)
 3. Click **Save**
 4. Your site will be available at `https://<username>.github.io/<repo>/`
 
+## Features
+
+- **Real-time Prices**: Displays current electricity prices for all Swedish price areas (SE1-SE4).
+- **Smart Notifications**: Alerts for low prices.
+- **Widgets**: Home screen and Lock screen widgets for quick access.
+- **Apple Watch**: Standalone Watch app with complications.
+- **Price History**: Graphs showing highs, lows, and averages.
+
 ## Updating Content
 
-### Screenshots
-Replace placeholder images by adding PNG/JPG files to `assets/images/screenshots/` and updating `index.html`.
-
-### App Store Link
-Replace `http://example-app-store-url.com` with your actual App Store URL in:
-- `index.html` (2 places)
-
-### Legal Pages
-Review and update `terms.html` and `privacy.html` with your specific legal content.
+- **Screenshots**: Replace images in `assets/images/screenshots/` and match filenames in `index.html`.
+- **App Store Link**: Update the URL in `index.html`.
+- **Legal**: Edit `terms.html` and `privacy.html`.
 
 ## Tech Stack
 
-- **HTML5** - Static pages
-- **Tailwind CSS** - Styling (via CDN, no build step required)
-- **No JavaScript framework** - Simple and fast
+- **HTML5** - Semantic structure.
+- **CSS3** - Custom design system with variables, flexbox/grid, and extensive use of gradients and glassmorphism. Hand-written animations.
+- **Vanilla JavaScript** - Lightweight interaction logic for the carousel and mobile navigation.
 
-## Notes
+## Testimonials
 
-- The site uses Tailwind CSS via CDN for simplicity
-- All pages are in Swedish (sv)
-- Responsive design works on mobile and desktop
+Includes a section for user reviews to build trust and showcase app benefits.
