@@ -296,7 +296,8 @@ img {
 }
 
 .nav-rating {
-  display: none; /* Hidden for now - enable later */
+  display: none;
+  /* Hidden for now - enable later */
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
@@ -412,10 +413,16 @@ img {
   transition: transform 0.2s ease;
 }
 
-.hero-icon:hover,
 .hero-icon.flash-active {
   animation: float 4s ease-in-out infinite, lightning-flash 0.6s ease-out;
   transform: scale(1.05);
+}
+
+@media (hover: hover) {
+  .hero-icon:hover {
+    animation: float 4s ease-in-out infinite, lightning-flash 0.6s ease-out;
+    transform: scale(1.05);
+  }
 }
 
 .hero-icon:active {
@@ -452,12 +459,19 @@ img {
   filter: blur(20px);
 }
 
-.hero-icon:hover::before,
-.hero-icon:hover::after,
 .hero-icon.flash-active::before,
 .hero-icon.flash-active::after {
   opacity: 1;
   animation: spark-flash 0.4s ease-out;
+}
+
+@media (hover: hover) {
+
+  .hero-icon:hover::before,
+  .hero-icon:hover::after {
+    opacity: 1;
+    animation: spark-flash 0.4s ease-out;
+  }
 }
 
 .hero-badge {
