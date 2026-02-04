@@ -620,7 +620,7 @@ img {
     overflow-x: auto;
     justify-content: flex-start;
     scroll-snap-type: x mandatory;
-    padding: 20px calc(50% - 120px) 40px;
+    padding: 60px calc(50% - 140px) 80px;
     margin: 0 -24px;
     scroll-padding: 0 50%;
     gap: 24px;
@@ -636,7 +636,14 @@ img {
   .phone-mockup {
     flex: 0 0 auto;
     scroll-snap-align: center;
-    width: 240px;
+    width: 280px;
+    transform: none;
+    opacity: 1;
+  }
+
+  /* Reorder screenshots on mobile: screenshot1 (2nd child) should be first */
+  .phone-mockup:nth-child(2) {
+    order: -1;
   }
 }
 
@@ -959,20 +966,20 @@ img {
 
 @media (max-width: 480px) {
   .phone-mockup {
-    width: 160px;
+    width: 280px;
   }
 
   .phone-frame {
-    border-radius: 32px;
-    padding: 8px;
+    border-radius: 44px;
+    padding: 12px;
   }
 
   .phone-screen {
-    border-radius: 26px;
+    border-radius: 36px;
   }
 
   .phone-notch {
-    width: 80px;
-    height: 24px;
+    width: 120px;
+    height: 32px;
   }
 }
