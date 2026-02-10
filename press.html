@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elblick - Marknadsmaterial</title>
+    <meta name="description" content="Marknadsmaterial och information om Elblick - Appen för elpriser i vardagen.">
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Custom styles for Marknadsmaterial page */
+        .press-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(245, 166, 35, 0.1) 0%, transparent 70%);
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .quick-link {
+            color: var(--text-primary);
+            transition: color var(--transition-fast);
+        }
+
+        .quick-link:hover {
+            color: var(--gold-primary);
+        }
+
+        .press-section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .asset-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            transition: background var(--transition-medium);
+        }
+
+        .asset-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .asset-preview-icon {
+            width: 180px;
+            height: 180px;
+            border-radius: var(--radius-2xl);
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .screenshot-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            transition: transform var(--transition-medium);
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .screenshot-download {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: underline;
+            transition: color var(--transition-fast);
+        }
+
+        .screenshot-download:hover {
+            color: var(--gold-primary);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: 'Video Placeholder';
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-top: 24px;
+        }
+
+        .info-box h4 {
+            color: var(--gold-primary);
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .press-hero {
+                padding: 100px 0 40px;
+            }
+
+            .quick-links {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .asset-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/icon.png" alt="Elblick">
+                <span>Elblick</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Tillbaka</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="press-hero">
+        <div class="container">
+            <h1 class="gradient-text">Marknadsmaterial</h1>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 20px auto; color: var(--text-secondary);">Officiellt
+                material, logotyper och information om Elblick.</p>
+            <div class="quick-links">
+                <a href="#info" class="quick-link">Appinformation</a>
+                <a href="#identity" class="quick-link">Appidentitet</a>
+                <a href="#screenshots" class="quick-link">Skärmbilder</a>
+                <a href="#video" class="quick-link">Video</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Info -->
+    <section class="press-section" id="info">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Appinformation</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p>Elblick ger dig full koll på elpriserna – direkt i fickan, på handleden och på hemskärmen. Oavsett
+                    vilken elleverantör du har kan du med Elblick se aktuella spotpriser för ditt prisområde.</p>
+
+                <div class="info-box">
+                    <h4>Nyckelfunktioner</h4>
+                    <ul style="padding-left: 20px; line-height: 1.8;">
+                        <li><strong>Aktuella elpriser:</strong> SE1-SE4 med tydliga färgindikatorer.</li>
+                        <li><strong>Interaktivt prisdiagram:</strong> Följ prisutvecklingen i realtid.</li>
+                        <li><strong>Smarta notiser:</strong> Planera förbrukningen när elen är som billigast.</li>
+                        <li><strong>Apple Watch & Widgets:</strong> Snabb överblick på alla dina enheter.</li>
+                        <li><strong>Prismodifiering:</strong> Inkludera nätavgifter, skatter och moms.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Identity -->
+    <section class="press-section" id="identity">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2>Appidentitet</h2>
+                <p>Elblick – Kolla elpriset nu. Elpriser för alla i Sverige.</p>
+            </div>
+            <div class="asset-card">
+                <img src="assets/images/icon.png" alt="Elblick Icon" class="asset-preview-icon">
+                <div>
+                    <h3>Appikon</h3>
+                    <p style="color: var(--text-secondary); margin: 8px 0 20px;">Högupplöst ikon för Elblick.</p>
+                    <a href="assets/images/icon.png" download class="btn btn-primary">Ladda ned PNG</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="press-section" id="screenshots">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Skärmbilder</h2>
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/images/screenshot1.png" alt="Screenshot 1">
+                        </div>
+                    </div>
+                    <a href="assets/images/screenshot1.png" download class="screenshot-download">Ladda ned</a>
+                </div>
+                <div class="screenshot-item">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/images/screenshot2.png" alt="Screenshot 2">
+                        </div>
+                    </div>
+                    <a href="assets/images/screenshot2.png" download class="screenshot-download">Ladda ned</a>
+                </div>
+                <div class="screenshot-item">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/images/screenshot3.png" alt="Screenshot 3">
+                        </div>
+                    </div>
+                    <a href="assets/images/screenshot3.png" download class="screenshot-download">Ladda ned</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="press-section" id="video">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Video</h2>
+            <div class="video-placeholder">
+                <!-- Framtida video-embed -->
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--text-secondary);">Kontakta oss för högupplösta videofiler för media.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="footer-logo">
+                <img src="assets/images/icon.png" alt="Elblick">
+                <span>Elblick</span>
+            </div>
+            <div class="footer-links">
+                <a href="terms.html" class="footer-link">Användarvillkor</a>
+                <a href="privacy.html" class="footer-link">Integritetspolicy</a>
+            </div>
+            <p class="footer-copy">
+                © 2026 Elblick. Alla rättigheter förbehållna.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
