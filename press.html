@@ -241,6 +241,54 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Description Expandable Content */
+        .description-content {
+            position: relative;
+            max-height: 300px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            text-align: left;
+            line-height: 1.6;
+            white-space: pre-line;
+            color: var(--text-secondary);
+        }
+
+        .description-content.expanded {
+            max-height: 2000px;
+        }
+
+        .description-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #0f1115);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .description-content.expanded .description-fade {
+            opacity: 0;
+        }
+
+        .show-more-btn {
+            display: block;
+            margin: 24px auto 0;
+            background: none;
+            border: none;
+            color: var(--gold-primary);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 8px 16px;
+            transition: opacity 0.2s ease;
+        }
+
+        .show-more-btn:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 
@@ -266,6 +314,7 @@
                 material, logotyper och information om Elblick.</p>
             <div class="quick-links">
                 <a href="#info" class="quick-link">Appinformation</a>
+                <a href="#description" class="quick-link">Beskrivning</a>
                 <a href="#icon" class="quick-link">Appikon</a>
                 <a href="#screenshots" class="quick-link">Skärmbilder</a>
                 <a href="#video" class="quick-link">Video</a>
@@ -311,6 +360,86 @@
                 </script>
             </div>
         </div>
+    </section>
+
+    <!-- App Store Description -->
+    <section class="press-section" id="description">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Beskrivning</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="description-content" id="app-description">
+                    Elblick ger dig full koll på elpriserna – direkt i fickan, på handleden och på hemskärmen.
+
+                    Oavsett vilken elleverantör du har kan du med Elblick se aktuella spotpriser för ditt prisområde.
+                    Appen visar dagens priser per timme eller per kvart, och tidigast efter klockan 13:00 (när
+                    elpriserna släppts) får du även morgondagens priser – så att du alltid kan planera din elförbrukning
+                    smart.
+
+                    AKTUELLA ELPRISER
+                    Se det aktuella elpriset just nu med tydliga färgindikatorer. Grönt när det är billigt, gult vid
+                    normalpriser och rött när det är dyrt. Du bestämmer själv tröskelvärdena.
+
+                    INTERAKTIVT PRISDIAGRAM
+                    Följ prisutvecklingen under dygnet i ett snyggt diagram. Tryck på i grafen för att se exakta priser
+                    för aktuellt tidsintervall.
+
+                    NOTISER
+                    Få en påminnelse när morgondagens elpris kommit och sätt egna påminnelser för att planera din dag.
+                    Perfekt för att starta tvättmaskinen eller ladda elbilen när elen är som billigast.
+
+                    SMARTA NOTISER
+                    Aktivera automatiska notiser som meddelar dig när priset är som lägst eller högst. Skapa egna regler
+                    som varnar dig när elpriset går under eller över ett visst pris under en viss tid.
+
+                    APPLE WATCH
+                    Ha koll på elpriset direkt på handleden. Watchappen visar aktuellt pris och dagens prisdiagram.
+
+                    WIDGETS
+                    Lägg till widgets på hemskärmen för snabb överblick. Välj mellan aktuellt pris, prisdiagram eller en
+                    snygg mätare.
+
+                    SIRI & GENVÄGAR
+                    Fråga Siri om elpriset eller skapa egna automationer med appen Genvägar.
+
+                    ALLA PRISOMRÅDEN
+                    Stöd för samtliga svenska prisområden: SE1 (Luleå), SE2 (Sundsvall), SE3 (Stockholm) och SE4
+                    (Malmö).
+
+                    PRISMODIFIERING
+                    Räkna ut ditt verkliga elpris inklusive nätavgifter, elcertifikat, moms och andra påslag. Se exakt
+                    vad du betalar per kilowattimme.
+
+                    ANPASSNINGSBART
+                    Välj mellan öre/kWh och kr/kWh
+
+                    ---
+
+                    Elblick är byggd med kärlek för iOS och watchOS. Designad för att vara enkel, snygg och användbar –
+                    varje dag.
+
+                    Vissa funktioner i appen kräver Elblick Pro.
+                    <div class="description-fade"></div>
+                </div>
+                <button class="show-more-btn" id="toggle-description" onclick="toggleDescription()">Visa mer</button>
+            </div>
+        </div>
+
+        <script>
+            function toggleDescription() {
+                const content = document.getElementById('app-description');
+                const btn = document.getElementById('toggle-description');
+
+                if (content.classList.contains('expanded')) {
+                    content.classList.remove('expanded');
+                    btn.innerText = 'Visa mer';
+                    // Scroll back to top of section if needed
+                    content.parentElement.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    content.classList.add('expanded');
+                    btn.innerText = 'Visa mindre';
+                }
+            }
+        </script>
     </section>
 
     <!-- App Icon -->
